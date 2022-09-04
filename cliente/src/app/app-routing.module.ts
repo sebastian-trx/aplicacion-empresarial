@@ -16,6 +16,7 @@ const redirectLoggedInToDashboard = () => redirectLoggedInTo(['game/new']);
 // Components
 import { LogInComponent } from './modules/game/pages/log-in/log-in.component';
 import { NewGameComponent } from './modules/game/pages/new-game/new-game.component';
+import { BoardComponent } from './modules/game/pages/board/board.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,12 @@ const routes: Routes = [
   {
     path: 'game/new',
     component: NewGameComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectUnauthorizedToLogin },
+  },
+  {
+    path: 'game/board',
+    component: BoardComponent,
     canActivate: [AngularFireAuthGuard],
     data: { authGuardPipe: redirectUnauthorizedToLogin },
   }

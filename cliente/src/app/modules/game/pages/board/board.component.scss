@@ -1,0 +1,106 @@
+.contenedor {
+    display: grid;
+    grid-template-areas: 
+    "header header"
+    "tablero mazo";
+    gap: 15px;
+    row-gap: 35px;
+}
+
+.header {
+    grid-area: header;
+    height: 15vh;
+    margin-left: 15px;
+    display: flex;
+}
+
+.tablero {
+    grid-area: tablero;
+    border: 1px solid #666666;
+    height: 75vh;
+    width: 65vw;
+    border-radius: 10px;
+    margin-left: 15px;
+    position: relative;
+    display: flex;
+    align-content: flex-start;
+    align-items: center;
+}
+
+.mazo {
+    grid-area: mazo;
+    border: 1px solid #666666;
+    width: 30vw;
+    border-radius: 10px;
+    position: relative;
+    height: 75vh;
+    display: flex;
+    align-content: flex-start;
+    align-items: center;
+}
+
+.header-info{
+    margin-left: 25px;
+}
+
+.header-info2{
+    display: flex;
+    align-items: center;
+    margin-left: 90px;
+}
+
+.tiempo{
+    font-size: 2em;
+    margin-right: 20px;
+}
+
+.boton{
+    font-size: 1.5em;
+    padding: 0 35px;
+}
+
+.partida, .mazo2{
+    position: absolute;
+    top: -20px;
+    left: 15px;
+    z-index: 99;
+    background-color: #3F51B5;
+    color: #FFFFFF;
+    border-radius: 5px;
+    padding: 5px 35px;
+    font-size: 1.5em;
+}
+
+.mazoCardContainer{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    overflow-y: scroll;
+    height: 85%;
+    border-radius: 10px;
+    justify-content: center;
+}
+
+.tableroCardContainer{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    height: 85%;
+    justify-content: center;
+}
+
+.card{
+    height: 190px;
+    width: 180px;
+    border-radius: 5px;
+    border: solid black 1px;
+    position: relative;
+}
+
+.botonPoner{
+    position: absolute;
+    bottom: 0;
+    right: 0px;
+}
+
+
