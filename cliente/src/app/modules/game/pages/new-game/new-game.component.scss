@@ -1,5 +1,18 @@
+.contenedor{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  // border: solid 1px black;
+}
+
+.contenedorFormulario{
+  width: 400px;
+}
+
 .jugadores {
-  width: 200px;
+  width: 400px;
 }
 
 .error {

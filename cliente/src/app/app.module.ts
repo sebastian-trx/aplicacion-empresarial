@@ -9,6 +9,8 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 // Material
 import {MatButtonModule} from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select'
+
 
 // Routers
 import { AppRoutingModule } from './app-routing.module';
@@ -36,7 +38,8 @@ import { LogInComponent } from './modules/game/pages/log-in/log-in.component';
     MatButtonModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
