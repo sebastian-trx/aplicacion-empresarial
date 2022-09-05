@@ -23,13 +23,15 @@ import { environment } from 'src/environments/environment';
 import { NewGameComponent } from './modules/game/pages/new-game/new-game.component';
 import { LogInComponent } from './modules/game/pages/log-in/log-in.component';
 import { BoardComponent } from './modules/game/pages/board/board.component';
+import { HomeComponent } from './modules/game/pages/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NewGameComponent,
     LogInComponent,
-    BoardComponent
+    BoardComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

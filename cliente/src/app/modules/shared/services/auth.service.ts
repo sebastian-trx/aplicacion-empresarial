@@ -43,7 +43,7 @@ export class AuthService {
         .then((res) => {
             this.gamers$.addGamer(res.user);
             this.ngZone.run(() => {
-                this.router.navigate(['game/new']);
+                this.router.navigate(['game/home']);
             })
         }).catch((error) => {
             window.alert(error)
