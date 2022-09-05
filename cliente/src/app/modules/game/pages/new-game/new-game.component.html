@@ -15,8 +15,10 @@
     <div class="error" *ngIf="frmJugadores.get('jugadores')?.hasError('required')">Debes seleccionar por lo menos un
       jugador</div>
     <br>
-    <button form="frmJugadores" mat-raised-button color="primary" type="submit" [disabled]="frmJugadores.invalid">Crear
-      Juego</button>
+    <button form="frmJugadores" mat-raised-button color="primary" type="submit" [disabled]="frmJugadores.invalid"
+      (click)="crearJuego()">
+      Crear Juego
+    </button>
     <button mat-raised-button color="accent" type="button" (click)="btnLogout()">Logout</button>
   </div>
 

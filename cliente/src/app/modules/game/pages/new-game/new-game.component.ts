@@ -5,6 +5,7 @@ import { Usuario } from '../../models/usuario.model';
 import { JugadoresService } from '../../services/jugadores.service';
 import firebase from 'firebase/compat';
 import { Game } from '../../models/game.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-game',
@@ -17,7 +18,7 @@ export class NewGameComponent implements OnInit {
   jugadores!: Array<Usuario>;
   currentUser!: firebase.User | null
 
-  constructor(private jugadores$: JugadoresService, private auth$: AuthService) {
+  constructor(private jugadores$: JugadoresService, private auth$: AuthService, private router: Router) {
     this.frmJugadores = this.createFormJugadores();
   }
 
@@ -49,6 +50,10 @@ export class NewGameComponent implements OnInit {
     return new FormGroup({
       jugadores: new FormControl(null, [Validators.required]),
     });
+  }
+
+  crearJuego(): void {
+    this.router.navigate(['game/board']);
   }
 
   btnLogout(): void {
