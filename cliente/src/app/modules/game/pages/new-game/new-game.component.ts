@@ -53,7 +53,7 @@ export class NewGameComponent implements OnInit {
   }
 
   crearJuego(): void {
-    this.router.navigate(['game/board']);
+    this.router.navigate(['game/lista']);
   }
 
   btnLogout(): void {

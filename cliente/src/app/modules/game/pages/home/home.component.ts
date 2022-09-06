@@ -19,4 +19,8 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['game/new']);
   }
 
+  consultarJuegos(): void{
+    this.router.navigate(['game/lista']);
+  }
+
 }

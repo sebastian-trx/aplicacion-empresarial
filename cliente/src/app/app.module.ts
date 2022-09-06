@@ -24,6 +24,7 @@ import { NewGameComponent } from './modules/game/pages/new-game/new-game.compone
 import { LogInComponent } from './modules/game/pages/log-in/log-in.component';
 import { BoardComponent } from './modules/game/pages/board/board.component';
 import { HomeComponent } from './modules/game/pages/home/home.component';
+import { ListaDejuegosComponent } from './modules/game/pages/lista-dejuegos/lista-dejuegos.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { HomeComponent } from './modules/game/pages/home/home.component';
     NewGameComponent,
     LogInComponent,
     BoardComponent,
-    HomeComponent
+    HomeComponent,
+    ListaDejuegosComponent
   ],
   imports: [
     BrowserModule,
