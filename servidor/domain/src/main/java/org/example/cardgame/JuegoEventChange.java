@@ -12,6 +12,7 @@ public class JuegoEventChange extends EventChange {
             juego.jugadores = new HashMap<>();
             juego.jugadorPrincipal = event.getJugadorPrincipal();
         });
+
         apply((JugadorAgregado event) -> {
             juego.jugadores.put(event.getJuegoId(),
                     new Jugador(event.getJuegoId(), event.getAlias(), event.getMazo())
@@ -35,6 +36,9 @@ public class JuegoEventChange extends EventChange {
         });
 
         apply((CartaPuestaEnTablero event) -> {
+            if (!juego.tablero.estaHabilitado()){
+                throw new IllegalArgumentException("no se puede poner carta, tablero no habilitado");
+            }
             juego.tablero.adicionarPartida(event.getJugadorId(), event.getCarta());
         });
 

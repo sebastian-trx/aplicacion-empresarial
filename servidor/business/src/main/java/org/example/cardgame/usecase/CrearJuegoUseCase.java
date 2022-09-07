@@ -28,6 +28,11 @@ public class CrearJuegoUseCase extends UseCaseForCommand<CrearJuegoCommand> {
                 .flatMapMany(cartas -> input.flatMapIterable(command -> {
 
                     //TODO: validaciones del comando
+
+                    if(command.getJugadores().size() < 2){
+                        throw new IllegalArgumentException("minimo 2 jugadores para crear");
+                    }
+
                     var factory = new JugadorFactory();
                     command.getJugadores()
                             .forEach((id, alias) ->

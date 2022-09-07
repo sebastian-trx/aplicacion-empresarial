@@ -13,6 +13,9 @@ public class Ronda implements ValueObject<Ronda.Props> {
         this.jugadores = jugadores;
         this.numero = numero;
         this.estaIniciada = false;
+        if(jugadores.size() <=1 || jugadores.size()>6){
+            throw new IllegalArgumentException("deben haber minimo 2 jugadores y maximo 6");
+        }
     }
 
     private Ronda(Integer numero, Set<JugadorId> jugadores, Boolean estaIniciada) {
