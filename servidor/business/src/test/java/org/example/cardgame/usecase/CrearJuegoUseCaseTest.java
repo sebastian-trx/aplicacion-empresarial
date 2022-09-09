@@ -64,16 +64,16 @@ class CrearJuegoUseCaseTest {
     private Flux<CartaMaestra> history() {
 
         return Flux.just(
-            new CartaMaestra("1","card1","qwe",2),
-            new CartaMaestra("2","card1","qwe",2),
-            new CartaMaestra("3","card1","qwe",2),
-            new CartaMaestra("4","card1","qwe",2),
-            new CartaMaestra("5","card1","qwe",2),
-            new CartaMaestra("6","card1","qwe",2),
-            new CartaMaestra("7","card1","qwe",2),
-            new CartaMaestra("8","card1","qwe",2),
-            new CartaMaestra("9","card1","qwe",2),
-            new CartaMaestra("0","card1","qwe",2)
+                new CartaMaestra("1","card1","qwe",2),
+                new CartaMaestra("2","card1","qwe",2),
+                new CartaMaestra("3","card1","qwe",2),
+                new CartaMaestra("4","card1","qwe",2),
+                new CartaMaestra("5","card1","qwe",2),
+                new CartaMaestra("6","card1","qwe",2),
+                new CartaMaestra("7","card1","qwe",2),
+                new CartaMaestra("8","card1","qwe",2),
+                new CartaMaestra("9","card1","qwe",2),
+                new CartaMaestra("0","card1","qwe",2)
         );
     }
 }

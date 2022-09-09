@@ -5,7 +5,7 @@ import org.example.cardgame.values.JuegoId;
 import org.example.cardgame.values.TableroId;
 
 public class CambiarTiempoCommand extends Command {
-    private JuegoId juegoId;
+    private String juegoId;
     private TableroId tableroId;
     private Integer tiempo;
 
@@ -13,11 +13,11 @@ public class CambiarTiempoCommand extends Command {
         return tiempo;
     }
 
-    public void setJuegoId(JuegoId juegoId) {
+    public void setJuegoId(String juegoId) {
         this.juegoId = juegoId;
     }
 
-    public JuegoId getJuegoId() {
+    public String getJuegoId() {
         return juegoId;
     }
 

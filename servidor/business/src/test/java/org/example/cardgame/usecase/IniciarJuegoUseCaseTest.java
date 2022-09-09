@@ -62,8 +62,6 @@ class IniciarJuegoUseCaseTest {
                 new JugadorAgregado(jugadorId,"sebas",new Mazo(cartas)),
                 new JugadorAgregado(jugadorId2,"sebas2",new Mazo(cartas)),
                 new TableroCreado(new TableroId(), Set.of(jugadorId,jugadorId2))
-                //new RondaCreada(new Ronda(1,Set.of(jugadorId,jugadorId2)), 50),
-                //new RondaIniciada()
         );
     }
 
