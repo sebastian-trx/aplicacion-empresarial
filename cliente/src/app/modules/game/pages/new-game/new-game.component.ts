@@ -37,9 +37,14 @@ export class NewGameComponent implements OnInit,OnDestroy {
       (item) => item.id !== this.currentUser?.uid
     );
     this.websocket.conect(this.id).subscribe({
-      next:(message:any) => console.log(message),
+      next:(message:any) => {
+        console.log(message)
+        this.router.navigate(['game/lista'])
+      },
       error:(error:any) => console.log(error),
-      complete:()=> console.log("completado")
+      complete:()=> {
+        console.log("completado")
+      }
     });
   }
 
@@ -53,7 +58,7 @@ export class NewGameComponent implements OnInit,OnDestroy {
     console.log('Submit', gamers);
     this.jugadores$.game(gamers).subscribe({
       next: (data: Game) => {
-        // Aquí hago algo con la información que llega del backend
+        
         console.log('Game', data);
       },
       error: (err: any) => {
@@ -83,7 +88,7 @@ export class NewGameComponent implements OnInit,OnDestroy {
         "jugadorPrincipalId": "uid-asd"
       })
       .subscribe((data) => {
-        console.log(data);
+        //console.log(data);
       });
   }
 

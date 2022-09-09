@@ -25,6 +25,7 @@ import { LogInComponent } from './modules/game/pages/log-in/log-in.component';
 import { BoardComponent } from './modules/game/pages/board/board.component';
 import { HomeComponent } from './modules/game/pages/home/home.component';
 import { ListaDejuegosComponent } from './modules/game/pages/lista-dejuegos/lista-dejuegos.component';
+import { HomeModule } from './modules/home/home.module';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { ListaDejuegosComponent } from './modules/game/pages/lista-dejuegos/list
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     HttpClientModule,
-    MatSelectModule
+    MatSelectModule,
+    HomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

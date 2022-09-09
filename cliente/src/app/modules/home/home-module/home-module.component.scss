@@ -1,0 +1,61 @@
+.contenedor{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;    
+}
+
+.div1{
+    border: 1px solid #DFDFDF;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    height: 60px;
+    width: 55vw;
+    text-align: center;
+    background-color: #F7F7F7;
+    font-size: large;
+}
+
+.div2{
+    border-left:1px solid #DFDFDF ;
+    border-right:1px solid #DFDFDF ;
+    height: 200px;
+    width: 55vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+}
+
+.div3{
+    border: 1px solid #DFDFDF;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    height: 60px;
+    width: 55vw;
+    background-color: #F7F7F7;
+    text-align: center;
+    color: #818181;
+}
+
+.indicaciones{
+    font-size: 1.8em;
+    font-weight: bold;
+    margin: 5px;
+}
+
+.info{
+    margin-top: 5px;
+    margin-bottom: 40px;
+}
+
+.botonCrearJuego{
+    font-size: 1.5em;
+    padding: 5px 55px;
+}
+
+.botonConsultar{
+    margin-top: 20px;
+}
