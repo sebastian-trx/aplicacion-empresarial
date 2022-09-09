@@ -82,4 +82,9 @@ export class JugadoresService {
       .then(() => console.log('Jugador registrado'));
     }
   }
+
+  crearJuego(body:any){
+    return this.http.post(`http://localhost:8080/juego/crear`,{...body})
+
+  }
 }
