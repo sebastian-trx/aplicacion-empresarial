@@ -5,9 +5,15 @@
             <span>Juego</span>
             <span>Cantidad de jugadores</span>
         </div>
-        <div class="items">
+        <div class="items" *ngFor="let juego of listaDejuegos">
+            <span>{{juego.id}}</span>
+            <button mat-raised-button [color]="juego.iniciado? 'basic':'primary'"> {{juego.iniciado?'Entrar':'Iniciar'}}
+                <span>{{juego.cantidadJugadores}}</span>
+            </button>
+        </div>
+
+        <!-- <div class="items">
             <span>juego1</span>
-            <!-- <button mat-raised-button color="primary">Iniciar 5</button> -->
             <button mat-raised-button color="primary">Iniciar <span>5</span></button>
         </div>
         <div class="items">
@@ -17,6 +23,6 @@
         <div class="items">
             <span>juego3</span>
             <button mat-raised-button color="basic" (click)="entrarEnJuego()">Entrar 3</button>
-        </div>
+        </div> -->
     </div>
 </div>

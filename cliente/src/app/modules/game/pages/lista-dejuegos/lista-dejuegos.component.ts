@@ -15,11 +15,13 @@ export class ListaDejuegosComponent implements OnInit {
 
   ngOnInit(): void {
     this.lista.listaDeJuegos("c3uF8AxQSkSQOG66j9RvIfTjomT2")
-    .subscribe(respuesta => { console.log(respuesta);
+    .subscribe(respuesta => { 
+      this.listaDejuegos = respuesta;
+      console.log(this.listaDejuegos);
     })
-    
-    
   }
+
+  
 
   entrarEnJuego(): void {
     this.router.navigate(['game/board']);

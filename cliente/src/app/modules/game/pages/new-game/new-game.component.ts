@@ -112,6 +112,6 @@ export class NewGameComponent implements OnInit, OnDestroy {
       .filter((jugador) =>e.value.includes(jugador.id));
 
     this.jugadoresSeleccionados.push(...this.usuarioActual);
-
+    console.log(this.jugadoresSeleccionados)
   }
 }

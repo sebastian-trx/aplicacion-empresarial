@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-home-module',
-  templateUrl: './home-module.component.html',
-  styleUrls: ['./home-module.component.scss']
+  selector: 'app-home-modularizado',
+  templateUrl: './home-modularizado.component.html',
+  styleUrls: ['./home-modularizado.component.scss']
 })
-export class HomeModuleComponent implements OnInit {
+export class HomeModularizadoComponent implements OnInit {
 
   constructor(private router: Router) {
     

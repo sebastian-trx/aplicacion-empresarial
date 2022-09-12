@@ -19,8 +19,6 @@ import { NewGameComponent } from './modules/game/pages/new-game/new-game.compone
 import { BoardComponent } from './modules/game/pages/board/board.component';
 import { HomeComponent } from './modules/game/pages/home/home.component';
 import { ListaDejuegosComponent } from './modules/game/pages/lista-dejuegos/lista-dejuegos.component';
-import { HomeModuleComponent } from './modules/home/home-module/home-module.component';
-
 
 const routes: Routes = [
   {
@@ -53,27 +51,20 @@ const routes: Routes = [
     canActivate: [AngularFireAuthGuard],
     data: { authGuardPipe: redirectUnauthorizedToLogin },
   },
+ 
   {
     path: 'game/homeModule',
-    component: HomeModuleComponent,
     canActivate: [AngularFireAuthGuard],
+    loadChildren: () =>
+      import('./modules/home-module/home-module.module').then(m => m.HomeModuleModule),
     data: { authGuardPipe: redirectUnauthorizedToLogin },
   },
 
-  // {
-  //   path: 'game/:id',
-  //   canActivate: [ EjemploGuard ],
-  //   children: [
-  //     {
-  //       path: 'new',
-  //       component: NewGameComponent,
-  //     }
-  //   ]
-  // }
+ 
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
