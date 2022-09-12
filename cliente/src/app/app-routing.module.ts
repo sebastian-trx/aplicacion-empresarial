@@ -21,6 +21,7 @@ import { HomeComponent } from './modules/game/pages/home/home.component';
 import { ListaDejuegosComponent } from './modules/game/pages/lista-dejuegos/lista-dejuegos.component';
 import { HomeModuleComponent } from './modules/home/home-module/home-module.component';
 
+
 const routes: Routes = [
   {
     path: '',

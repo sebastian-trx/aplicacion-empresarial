@@ -87,4 +87,9 @@ export class JugadoresService {
     return this.http.post(`http://localhost:8080/juego/crear`,{...body})
 
   }
+
+
+  listaDeJuegos(id: string){
+    return this.http.get<any[]>(`http://localhost:8080/juego/listar/${id}`);
+   }
 }

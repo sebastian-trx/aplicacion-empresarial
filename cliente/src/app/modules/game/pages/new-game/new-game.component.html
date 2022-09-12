@@ -1,25 +1,23 @@
 <div class="contenedor">
-  <div>
-    <h2>Crear juego</h2>
-  </div>
-  <div class="contenedorFormulario">
-    <mat-form-field appearance="fill" class="jugadores" id="frmJugadores" [formGroup]="frmJugadores"
-      (ngSubmit)="frmJugadores.valid ? submit() : false">
-      <mat-label>Selecciona los jugadores </mat-label>
-      <!-- <mat-select [formControl]="toppings" multiple> -->
-      <mat-select multiple name="jugadores" formControlName="jugadores">
-        <mat-option *ngFor="let jugador of jugadores" [value]="jugador.id">{{jugador.name}}</mat-option>
-      </mat-select>
-    </mat-form-field>
-    <br>
-    <div class="error" *ngIf="frmJugadores.get('jugadores')?.hasError('required')">Debes seleccionar por lo menos un
-      jugador</div>
-    <br>
-    <button form="frmJugadores" mat-raised-button color="primary" type="submit" [disabled]="frmJugadores.invalid"
-      (click)="crearJuego()">
-      Crear Juego
-    </button>
-    <button mat-raised-button color="accent" type="button" (click)="btnLogout()">Logout</button>
-  </div>
+    <div>
+        <h2>Crear juego</h2>
+    </div>
+    <div class="contenedorFormulario">
+        <mat-form-field appearance="fill" class="jugadores" id="frmJugadores" [formGroup]="frmJugadores">
+            <mat-label>Selecciona los jugadores </mat-label>
+            <mat-select multiple name="jugadores" formControlName="jugadores" (selectionChange)="change($event)">
+                <mat-option *ngFor="let jugador of jugadores" [value]="jugador.id">{{jugador.name}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <br>
+        <div class="error" *ngIf="frmJugadores.get('jugadores')?.hasError('required')">Debes seleccionar por lo menos un
+            jugador</div>
+        <br>
+        <button form="frmJugadores" mat-raised-button color="primary" type="submit" [disabled]="frmJugadores.invalid"
+            (click)="crearJuego()">
+            Crear Juego
+        </button>
+        <button mat-raised-button color="accent" type="button" (click)="btnLogout()">Logout</button>
+    </div>
 
 </div>

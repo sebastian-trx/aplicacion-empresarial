@@ -34,7 +34,7 @@ import { HomeModule } from './modules/home/home.module';
     LogInComponent,
     BoardComponent,
     HomeComponent,
-    ListaDejuegosComponent
+    ListaDejuegosComponent,
   ],
   imports: [
     BrowserModule,
