@@ -38,7 +38,7 @@ public class FinalizarRondaUseCase extends UseCaseForCommand<FinalizarRondaComma
                          //poder apostar mas de una carta
 
                             .forEach((jugadorId, cartas) -> {
-                        cartas.stream()
+                                cartas.stream()
                                 .map(c -> c.value().poder())
                                 .reduce(Integer::sum)
                                 .ifPresent(puntos -> {
@@ -57,7 +57,6 @@ public class FinalizarRondaUseCase extends UseCaseForCommand<FinalizarRondaComma
                     var puntos = partida.getKey();
 
                     juego.asignarCartasAGanador(JugadorId.of(ganadorId), puntos, cartasEnTablero);
-                   // juego.quitarCartaEnTablero();
                     juego.terminarRonda(juego.tablero().identity(), competidores);
 
 

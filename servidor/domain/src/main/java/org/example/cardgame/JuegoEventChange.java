@@ -40,6 +40,12 @@ public class JuegoEventChange extends EventChange {
                 throw new IllegalArgumentException("No se puede apostar porque el tablero no esta habilitado");
             }
             juego.tablero.adicionarPartida(event.getJugadorId(), event.getCarta());
+
+        });
+
+        apply((JuegoAcelerado event) -> {
+            //logica de acelerar partida
+            juego.tablero.acelerarPartida(event.getJugadorId());
         });
 
         apply((CartaQuitadaDelTablero event) -> {

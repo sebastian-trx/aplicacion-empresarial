@@ -73,6 +73,10 @@ public class Juego extends AggregateEvent<JuegoId> {
         appendChange(new JuegoFinalizado(jugadorId, alias)).apply();
     }
 
+    public void acelerarJuego(JugadorId jugadorId){
+        appendChange(new JuegoAcelerado(jugadorId)).apply();
+    }
+
     public Ronda ronda() {
         return ronda;
     }

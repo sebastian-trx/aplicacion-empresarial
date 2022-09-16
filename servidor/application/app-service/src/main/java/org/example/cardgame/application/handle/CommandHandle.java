@@ -2,14 +2,8 @@ package org.example.cardgame.application.handle;
 
 
 
-import org.example.cardgame.command.CrearJuegoCommand;
-import org.example.cardgame.command.IniciarJuegoCommand;
-import org.example.cardgame.command.IniciarRondaCommand;
-import org.example.cardgame.command.PonerCartaEnTablero;
-import org.example.cardgame.usecase.CrearJuegoUseCase;
-import org.example.cardgame.usecase.IniciarJuegoUseCase;
-import org.example.cardgame.usecase.IniciarRondaUseCase;
-import org.example.cardgame.usecase.PonerCartaEnTableroUseCase;
+import org.example.cardgame.command.*;
+import org.example.cardgame.usecase.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
@@ -79,7 +73,16 @@ public class CommandHandle {
         );
     }
 
+    @Bean
+    public RouterFunction<ServerResponse> acelerarRonda(AcelerarJuegoUseCase usecase) {
+        return route(
+                POST("/juego/ronda/acelerar").and(accept(MediaType.APPLICATION_JSON)),
+                request -> usecase.andThen(integrationHandle)
+                        .apply(request.bodyToMono(AcelerarJuegoCommand.class))
+                        .then(ServerResponse.ok().build())
 
+        );
+    }
 
 
 

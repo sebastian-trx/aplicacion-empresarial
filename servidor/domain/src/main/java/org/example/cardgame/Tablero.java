@@ -14,12 +14,15 @@ public class Tablero extends Entity<TableroId> {
     private Integer tiempoEnSegundos;
     private Boolean estaHabilitado;
 
+    private Set<JugadorId> jugadores;
+
     private final Map<JugadorId, Set<Carta>> partida;
 
     public Tablero(TableroId entityId, Set<JugadorId> jugadorIds) {
         super(entityId);
         this.partida = new HashMap<>();
         this.estaHabilitado = false;
+        this.jugadores = new HashSet<>();
         jugadorIds.forEach(jugadorId -> partida.put(jugadorId, new HashSet<>()));
     }
 
@@ -34,6 +37,10 @@ public class Tablero extends Entity<TableroId> {
 
     public void adicionarPartida(JugadorId jugadorId, Carta carta){
         partida.getOrDefault(jugadorId, new HashSet<>()).add(carta);
+    }
+
+    public void acelerarPartida(JugadorId jugadorId){
+        jugadores.add(jugadorId);
     }
 
     public void quitarCarta(JugadorId jugadorId, Carta carta){
@@ -56,11 +63,9 @@ public class Tablero extends Entity<TableroId> {
         return estaHabilitado;
     }
 
-    /*public Map<JugadorId, Set<Carta>> partida() {
-        return partida;
-    }*/
-
     public Map<JugadorId, Set<Carta>> partida() {
         return partida;
     }
+
+    public Set<JugadorId> Jugadores() {return jugadores;}
 }

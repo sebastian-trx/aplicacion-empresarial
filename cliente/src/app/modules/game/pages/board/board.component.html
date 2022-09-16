@@ -1,12 +1,16 @@
 <div class="contenedor">
     <div class="header">
         <div class="header-info">
-            <p>Ronda: {{ronda}}</p>
+            <p>Ronda: {{ronda}}</p> 
             <p>Jugadores: {{jugadores}}</p>
+        </div>
+        <div class="header-info3">
+            <p class="puntos">Puntos ganados: {{puntosGanadosEnRonda}}</p> 
         </div>
         <div class="header-info2">
             <span class="tiempo">Tiempo: {{tiempo}}s </span>
             <button mat-raised-button color="primary" class="boton" (click)="iniciarRonda()">Iniciar</button>
+            <button mat-raised-button color="primary" class="botonAcelerar" (click)="acelerarRonda()">Acelerar</button>
         </div>
     </div>
     <div class="tablero">
@@ -15,12 +19,6 @@
             <div class="card" *ngFor="let carta of cartasDelTablero">
                 <img src="/assets/Pack 108 Pepsicards marvel/{{carta.cartaId}}"/>
             </div>
-            <!-- <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div> -->
         </div>
     </div>
     <div class="mazo">

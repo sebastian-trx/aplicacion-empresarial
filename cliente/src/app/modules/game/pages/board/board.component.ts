@@ -18,6 +18,10 @@ export class BoardComponent implements OnInit {
   tiempo: number = 0;
   jugadores!: number 
   ronda!:number
+  puntosGanadosEnRonda:number = 0
+  puntosCartaApostada:number = 0
+  sumatoriaDePoder:number = 0
+  cartasApostadas:any[] = []
 
 
   constructor(
@@ -55,6 +59,13 @@ export class BoardComponent implements OnInit {
         if (message.type === 'cardgame.cartasasignadasajugador') {
           //encapsular en un metodo:
           if(this.jugadorId?.uid === message.ganadorId.uuid){
+            //puntos ganados en ronda
+            this.puntosCartaApostada =  message.puntos
+            this.cartasApostadas = message.cartasApuesta
+            this.cartasApostadas.forEach(item => this.sumatoriaDePoder +=item.poder)
+            this.puntosGanadosEnRonda = this.sumatoriaDePoder - this.puntosCartaApostada
+
+            //cartas ganadas en ronda
             this.cartasganadasEnRonda = message.cartasApuesta.map((item:any) => {
               return {
                 cartaId: item.cartaId.uuid,
@@ -64,11 +75,14 @@ export class BoardComponent implements OnInit {
               };
             });
             this.mazoJugador.push(...this.cartasganadasEnRonda)
+          }else{
+            this.puntosGanadosEnRonda = 0
           }
           console.log('cartasasignadasajugador');
         }
         if (message.type === 'cardgame.rondaterminada') {
           this.cartasDelTablero = [];
+          this.sumatoriaDePoder = 0;
           console.log('rondaterminada');
         }
         if (message.type === 'cardgame.rondacreada') {
@@ -114,5 +128,13 @@ export class BoardComponent implements OnInit {
       cartaId: cartaId,
       juegoId: this.juegoId,
     }).subscribe();
+  }
+
+  acelerarRonda():void{
+    this.juego$.acelerarRonda({
+      jugadorId: this.jugadorId?.uid,
+      juegoId: this.juegoId,
+    })
+    .subscribe();
   }
 }

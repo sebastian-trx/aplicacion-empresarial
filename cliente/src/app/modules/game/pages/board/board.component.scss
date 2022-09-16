@@ -12,6 +12,7 @@
     height: 15vh;
     margin-left: 15px;
     display: flex;
+    align-items: center;
 }
 
 .tablero {
@@ -49,6 +50,16 @@
     margin-left: 90px;
 }
 
+.header-info3{
+    width: 250px;
+    margin-left: 90px;
+}
+
+.puntos{
+    font-size: 1.5em;
+
+}
+
 .tiempo{
     font-size: 2em;
     margin-right: 20px;
@@ -59,12 +70,18 @@
     padding: 0 35px;
 }
 
+.botonAcelerar{
+    font-size: 1.5em;
+    padding: 0 35px;
+    margin-left: 160px;
+}
+
 .partida, .mazo2{
     position: absolute;
     top: -20px;
     left: 15px;
     z-index: 99;
-    background-color: #3F51B5;
+    background-color: #7c3fb5;
     color: #FFFFFF;
     border-radius: 5px;
     padding: 5px 35px;

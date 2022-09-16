@@ -110,4 +110,8 @@ export class JugadoresService {
    apostar(body:any){
     return this.http.post<any[]>(`http://localhost:8080/juego/poner`,body)
    }
+
+   acelerarRonda(body:any){
+    return this.http.post<any[]>(`http://localhost:8080/juego/ronda/acelerar`,body)
+   }
 }
