@@ -97,10 +97,23 @@
     position: relative;
 }
 
+img{
+    height: 190px;
+    width: 180px;
+}
+
 .botonPoner{
     position: absolute;
     bottom: 0;
     right: 0px;
+    opacity: .6;
+    width: 100%;
 }
 
+.poder{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    color: #EEEEEE;
+}
 

@@ -53,6 +53,7 @@ export class NewGameComponent implements OnInit, OnDestroy {
 
     this.websocket.conect(this.id).subscribe({
       next: (message: any) => {
+        //console.log(message);
         this.router.navigate(['game/lista']);
       },
       error: (error: any) => console.log(error),
@@ -66,22 +67,6 @@ export class NewGameComponent implements OnInit, OnDestroy {
     this.websocket.close();
   }
 
-  // public submit(): void {
-  //   const gamers = this.frmJugadores.getRawValue();
-  //   gamers.jugadores.push(this.currentUser?.uid);
-  //   console.log('Submit', gamers);
-  //   this.jugadores$.game(gamers).subscribe({
-  //     next: (data: Game) => {
-  //       console.log('Game', data);
-  //     },
-  //     error: (err: any) => {
-  //       console.log(err);
-  //     },
-  //     complete: () => {
-  //       console.log('Completed');
-  //     },
-  //   });
-  // }
 
   private createFormJugadores(): FormGroup {
     return new FormGroup({

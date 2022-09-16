@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/modules/shared/services/auth.service';
 import { JugadoresService } from '../../services/jugadores.service';
 
 @Component({
@@ -10,21 +11,27 @@ import { JugadoresService } from '../../services/jugadores.service';
 export class ListaDejuegosComponent implements OnInit {
 
   listaDejuegos:any
+  currentUser!:any
 
-  constructor(private router:Router, private lista:JugadoresService) { }
+  constructor(private auth$: AuthService, private router:Router, private lista$:JugadoresService) { }
 
-  ngOnInit(): void {
-    this.lista.listaDeJuegos("c3uF8AxQSkSQOG66j9RvIfTjomT2")
+  async ngOnInit(): Promise<void> {
+    this.currentUser = await this.auth$.getUserAuth();
+    this.lista$.listaDeJuegos(this.currentUser?.uid)
     .subscribe(respuesta => { 
       this.listaDejuegos = respuesta;
       console.log(this.listaDejuegos);
     })
   }
 
-  
+  entrarEnJuego(id:string): void {
+    this.lista$.iniciarJuego(id).subscribe()
+    this.router.navigate([`game/board/${id}`]);
+  }
 
-  entrarEnJuego(): void {
-    this.router.navigate(['game/board']);
+  iniciarJuego(id:string): void{
+    //ruta de prueba
+    //this.router.navigate(['game/new']);
   }
 
 }

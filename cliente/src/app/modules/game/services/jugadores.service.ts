@@ -30,12 +30,6 @@ export class JugadoresService {
 
   async getJugadores(): Promise<Array<Usuario>>{
     const result = await new Promise<Usuario[]>((resolve, reject) => {
-      // const query = this.usersCollection.ref.where('id', '==', 'Mi Variable');
-      // query.get().then((data) => {
-      //   data.forEach((value) => {
-      //     console.log(value);
-      //   });
-      // });
       const query = this.usersCollection;
       query.get().subscribe({
         next: (data) => {
@@ -91,5 +85,29 @@ export class JugadoresService {
 
   listaDeJuegos(id: string){
     return this.http.get<any[]>(`http://localhost:8080/juego/listar/${id}`);
+   }
+
+
+   mazoDeCartas(id:string){
+    return this.http.get<any[]>(`http://localhost:8080/jugador/mazo/${id}`);
+    // return this.http.get<any[]>(`http://localhost:8080/jugador/mazo/c3uF8AxQSkSQOG66j9RvIfTjomT2`);
+   }
+
+   tablero(id:string){
+    return this.http.get<any[]>(`http://localhost:8080/juego/${id}`);
+   }
+
+
+   iniciarJuego(id:string){
+    return this.http.post<any[]>(`http://localhost:8080/juego/iniciar`,{"juegoId":id})
+   }
+
+
+   iniciarRonda(id:string){
+    return this.http.post<any[]>(`http://localhost:8080/juego/ronda/iniciar`,{"juegoId":id})
+   }
+
+   apostar(body:any){
+    return this.http.post<any[]>(`http://localhost:8080/juego/poner`,body)
    }
 }
