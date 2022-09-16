@@ -4,6 +4,7 @@ import co.com.sofka.domain.generic.EventChange;
 import org.example.cardgame.events.*;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Objects;
 
 public class JuegoEventChange extends EventChange {
@@ -51,10 +52,11 @@ public class JuegoEventChange extends EventChange {
 
         apply((RondaIniciada event) -> {
             if(Objects.isNull(juego.ronda)){
-                throw new IllegalArgumentException("Debe existir una runda creada");
+                throw new IllegalArgumentException("Debe existir una ronda creada");
             }
             juego.ronda = juego.ronda.iniciarRonda();
             juego.tablero.habilitarApuesta();
+            juego.tablero.partida().forEach((key, Value)-> juego.tablero.partida().put(key,new HashSet<>()));
         });
 
         apply((RondaTerminada event) -> {

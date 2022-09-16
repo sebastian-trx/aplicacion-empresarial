@@ -32,10 +32,11 @@ public class PonerCartaEnTableroUseCase extends UseCaseForCommand<PonerCartaEnTa
                     var cartasDelJugador = juego.jugadores().get(jugadorId).mazo().value().cartas();
                     var cartaSeleccionado = seleccionarCarta(command.getCartaId(), cartasDelJugador);
 
+                    //
                     var cantidad = (long) juego.tablero().partida()
                             .get(jugadorId).size();
-                    if(cantidad >= 2) {
-                        throw new IllegalArgumentException("No puede poner mas de 2 cartas en el tablero");
+                    if(cantidad >1) {
+                        throw new IllegalArgumentException("No puede poner mas de 1 carta en el tablero");
                     }
                     juego.ponerCartaEnTablero(tableroId, jugadorId, cartaSeleccionado);
                     return juego.getUncommittedChanges();

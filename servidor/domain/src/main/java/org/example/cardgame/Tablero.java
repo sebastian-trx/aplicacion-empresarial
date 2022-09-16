@@ -13,6 +13,7 @@ import java.util.Set;
 public class Tablero extends Entity<TableroId> {
     private Integer tiempoEnSegundos;
     private Boolean estaHabilitado;
+
     private final Map<JugadorId, Set<Carta>> partida;
 
     public Tablero(TableroId entityId, Set<JugadorId> jugadorIds) {
@@ -54,6 +55,10 @@ public class Tablero extends Entity<TableroId> {
     public Boolean estaHabilitado() {
         return estaHabilitado;
     }
+
+    /*public Map<JugadorId, Set<Carta>> partida() {
+        return partida;
+    }*/
 
     public Map<JugadorId, Set<Carta>> partida() {
         return partida;
